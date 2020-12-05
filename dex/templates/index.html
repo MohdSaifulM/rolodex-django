@@ -1,0 +1,61 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="container">
+  <div class="row">
+    {% for contact in contacts %}
+    <div class="col s12 m4 l3">
+      <div
+        class="card animate__animated animate__fadeInUp card-panel hoverable"
+      >
+        <div class="card-image">
+          <img src="{{ contact.image_url }}" />
+          <span class="card-title">{{contact.name}}</span>
+        </div>
+        <div class="fixed-action-btn">
+          <a class="btn-floating btn-large blue ligthen-4" href="{% url 'update_contact' contact.id %}"> 
+            <i class="large material-icons">mode_edit</i>
+          </a>
+          <ul>
+            <li>
+              <a
+                class="btn-floating blue ligthen-4"
+                href="{% url 'delete_contact' contact.id %}?del=true"
+                ><i class="material-icons">clear</i></a
+              >
+            </li>
+            <li>
+              <a class="btn-floating blue ligthen-4"
+                ><i class="material-icons">attach_file</i></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="card-content blue lighten-5">
+          <span>
+            <ul class="">
+              <li class="row">
+                <i class="material-icons col s2">account_box</i>{{contact.name}}
+              </li>
+              <li class="row">
+                <i class="material-icons col s2">email</i>{{contact.email}}
+              </li>
+              <li class="row">
+                <i class="material-icons col s2">phone_iphone</i
+                >{{contact.contact}}
+              </li>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".fixed-action-btn");
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: "left",
+    });
+  });
+</script>
+{% endblock %}

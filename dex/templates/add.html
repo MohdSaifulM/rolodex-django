@@ -1,0 +1,26 @@
+{% extends 'layout.html' %} {% load widget_tweaks %}{% block title %} Add New
+Contact {% endblock %} {% block body %}
+
+<div class="container">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="input-field form-field col s12">
+    <i class="material-icons prefix">account_box</i>
+      {% render_field form.name class="validate" %}
+      <label for="name">Name</label>
+    <div class="input-field form-field col s12">
+    <i class="material-icons prefix">email</i>
+      {% render_field form.email class="validate" %}
+      <label for="email">Email</label>
+    </div>
+    <div class="input-field form-field col s12">
+    <i class="material-icons prefix">phone_iphone</i>
+      {% render_field form.contact class="validate" %}
+      <label for="contact">Contact</label>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn blue darken-2">
+      Add Contact
+    </button>
+  </form>
+</div>
+{% endblock %}
