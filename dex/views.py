@@ -10,12 +10,18 @@ from .filters import ContactFilter
 def index(request):
 
     # contacts = sorted(Contact.objects.all(), key=attrgetter('updated_at'), reverse=True)
+    q = ""
     contacts = Contact.objects.all()
+    contact_count = contacts.count()
 
     myFilter = ContactFilter(request.GET, queryset=contacts)
     contacts = myFilter.qs
+
+    if request.GET:
+        q = request.GET['search']
+        
     
-    context = {"contacts": contacts, "myFilter": myFilter}
+    context = {"contacts": contacts, "myFilter": myFilter, "contact_count": contact_count, "q": q}
 
     return render(request, 'index.html', context)
 

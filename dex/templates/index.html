@@ -4,11 +4,15 @@
     <a href="{% url 'index' %}" class="brand-logo"
       ><i class="material-icons">chrome_reader_mode</i></a
     >
-    <ul class="right hide-on-med-and-down">
-      <li>
+    <ul class="right">
+      <li class="search_form">
         <form method="get">
-          {{myFilter.form}}
-          <button class="btn btn-primary" type="submit">Search</button>
+          <div class="row">
+            <div class="col s2">
+              <i class="material-icons" id="search-icon">search</i>
+            </div>
+            <div class="col s10">{{myFilter.form}}</div>
+          </div>
         </form>
       </li>
       <li>
@@ -17,7 +21,7 @@
     </ul>
   </div>
 </nav>
-{% endblock %} {% block body %} {% if contacts %}
+{% endblock %} {% block body %} {% if contacts and contact_count > 0 %}
 
 <div class="container">
   <div class="row">
@@ -50,7 +54,8 @@
           <span>
             <ul class="">
               <li class="row">
-                <i class="material-icons col s2">account_box</i>{{contact.contact_name}}
+                <i class="material-icons col s2">account_box</i
+                >{{contact.contact_name}}
               </li>
               <li class="row">
                 <i class="material-icons col s2">email</i>{{contact.email}}
@@ -75,7 +80,7 @@
     });
   });
 </script>
-{% else %}
+{% elif contact_count == 0 %}
 <div class="container">
   <div class="row">
     <div class="card">
@@ -89,4 +94,15 @@
     </div>
   </div>
 </div>
+{% elif contact_count > 0 %}
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-content">
+        <h6>Unable to search for "{{q}}"</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endif %} {% endblock %}
