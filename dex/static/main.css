@@ -1,13 +1,29 @@
+@font-face {
+    font-family: 'KrinkesDecorPERSONAL';
+    src: local('KrinkesDecorPERSONAL'), url('../static/KrinkesDecorPERSONAL.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Bray Notes';
+    src: local('Bray Notes'), url('../static/Bray Notes.ttf') format("truetype");
+}
+
 body {
     background-color: #e3f2fd;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.5)), url("https://i.ibb.co/J2pQyCJ/jeshoots-com-p-UAM5h--CRI-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    font-family: Bray Notes;
 }
 
 .brand-logo {
     margin-left: 20px;
+    font-family: KrinkesDecorPERSONAL;
+    font-weight: bold;
+}
+
+.search_form, li {
+    font-size: larger;
 }
 
 /* label color */
@@ -42,6 +58,5 @@ body {
 }
 
 .search_form {
-    height:20px;
+    height: 20px;
 }
-

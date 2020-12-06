@@ -1,57 +1,60 @@
 # ROLODEX - Contacts Management w/ Django
 
-# Back Story
-Goodbye rolodex. Hello 21st Century.
-Let's get rid of the rolodex that's gathering dust on our desk and start storing our contacts in an app.
-
-<img src="https://cdn.mscdirect.com/global/images/ProductImages/7474251-11.jpg" width="400">
+# Task from homework god
+Develop a boomer-friendly contacts management app. Decided to put in a bit more effort cause some of us still using ROLODEX(whatever that is)
 
 # Deliverables
 1. User should be able to create a contact via a form
 1. A page listing all of your contacts
-1. A page to show one contact
+1. A page to show one contact (crap I forgot about this)
 1. Edit and Delete a contact
 
-# Further (But you've got the whole weekend to solve it and it's the final weekend homework so you might as well push yourself and please the homework GOD)
+**A lonely start**
+<img src="https://i.ibb.co/crywqmx/2020-12-06-16-30.png" width="400">
+  - This is where users will land. It'll show the above message if users have yet to add any contacts. Clicking the <i class="material-icons">add</i> icon on the message will bring users directly to the add a new contact page
 
-1. Create a search function for your rolodex
-```python
-request.GET.get(“q”) #this line will get the querry parameter from the url
-```
+**Add a new contact**
+<img src="https://i.ibb.co/zrYhQ0x/2020-12-06-16-32.png" width="400">
+  - My first time using materializecss cause I thought the form was cool. Not the best idea but I wanted to please the homework god.
+  - Realized to activate the form you have to either click on the line of the input OR to the left of the label
 
-2. Style it with style
+**Dashboard**
+<img src="https://i.ibb.co/gd1LFxH/2020-12-06-16-35.png" width="400">
+<img src="https://i.ibb.co/hRwdnZS/2020-12-06-16-37.png" width="400">
+  - Users will have a default photo for their contact which they could upload when they feel like editing the contact
+  - Actually wanted to have the option to add photo while adding contact but I kept getting a 302 error however just like in our phones, we usually don't add our contact's photo while exchaning numbers so I guess this is making the app abit more realistic
+  - Users can edit/add photo by clicking the button on the contact's car
+  - Hovering on the card, will give users the option to delete the contact
 
-## Getting Started
-- Clone this repository
-- Create a django project `django-admin startproject rolodex`
-- Go to your project folder `cd rolodex`
-- Install Django `pipenv install django`
-- Start python virtual environment `pipenv shell`
-- Create a django app `python manage.py startapp siusinghomeworkgod`
-- When complete send a pull request with a readme containing screenshots of your app.
+<img src="https://i.ibb.co/c3D1J2h/2020-12-06-17-09.png" width="400">
+<img src="https://i.ibb.co/XkJLcz4/2020-12-06-17-09-1.png" width="400">
+  - From the dashboard, users can also start a search, where it'll filter the people on the app according to their name, email and contact number
+  - However, if there is no matching results, it'll return an error message
 
-## Helper
-Since we have all agreed to use Postgresql as the Database for our app. Here is the hint on how to set it up.
-1. On your terminal run `createdb <appname_development>`
-2. Add to `your settings.py` under database
-```python
-  DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '<database name>',
-        'USER': '<siusing>',
-        # 'PASSWORD': '<ebere>', # only required if on windows
-        'HOST': 'localhost',
-        'PORT': 5432
-    }
-}
-```
+<img src="https://i.ibb.co/ypvfpmq/2020-12-06-16-41.png" width="400">
 
-If the above doesn't work for you, please consider using sqlite as a the Database for your app, as seen in class.
+
+**Technologies used:** <br>
+- django, python
+- psycopg2-binary
+- django-widget-tweaks (for the forms)
+- pillow
+- django-filter
+- materializecss
+
+<img src="https://i.pinimg.com/originals/e7/e7/02/e7e7021ea20cfc722b8e4d8cea343361.jpg">
+
+<h1><a href="https://www.starwars.com/databank/darth-vader">JOIN THE DARK SIDE</a></h1> 
+
+
+
+
+
+
+
+
+
+
 
 
 
