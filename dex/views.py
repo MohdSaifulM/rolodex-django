@@ -12,15 +12,13 @@ def index(request):
 
 def add(request):
     if request.method == "POST": 
-        form_data = NewContactForm(request.POST) 
+        form_data = NewContactForm(request.POST, request.FILES) 
         if form_data.is_valid():  
             name = form_data.cleaned_data['name']
             email = form_data.cleaned_data['email']
             contact = form_data.cleaned_data['contact']
-            # image_url = form_data.cleaned_data['image_url']
             # new Contact(request.body)
-            contact_info = Contact(name=name, email=email, contact=contact)
-            
+            contact_info = Contact(name=name, email=email, contact=contact,)
             contact_info.save()  
             return HttpResponseRedirect(reverse("index"))
         else: 
@@ -41,7 +39,7 @@ def update_contact(request, id):
     contact = Contact.objects.get(pk=id)
 
     if request.method == "POST":
-        form_data = NewContactForm(request.POST, instance=contact)  # django
+        form_data = NewContactForm(request.POST, request.FILES, instance=contact)  # django
         if form_data.is_valid():  # django
             form_data.save()  # save data to db
             # particular page

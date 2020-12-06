@@ -2,7 +2,7 @@
 Contact {% endblock %} {% block body %}
 
 <div class="container">
-  <form action="" method="POST">
+  <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}
     <button type="submit" class="waves-effect waves-light btn blue darken-2">
