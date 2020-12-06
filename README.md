@@ -9,16 +9,16 @@ Develop a boomer-friendly contacts management app. Decided to put in a bit more 
 1. A page to show one contact (crap I forgot about this)
 1. Edit and Delete a contact
 
-**A lonely start**
+**A lonely start <br>**
 <img src="https://i.ibb.co/crywqmx/2020-12-06-16-30.png" width="400">
   - This is where users will land. It'll show the above message if users have yet to add any contacts. Clicking the <i class="material-icons">add</i> icon on the message will bring users directly to the add a new contact page
 
-**Add a new contact**
+**Add a new contact <br>**
 <img src="https://i.ibb.co/zrYhQ0x/2020-12-06-16-32.png" width="400">
   - My first time using materializecss cause I thought the form was cool. Not the best idea but I wanted to please the homework god.
   - Realized to activate the form you have to either click on the line of the input OR to the left of the label
 
-**Dashboard**
+**Dashboard <br>**
 <img src="https://i.ibb.co/gd1LFxH/2020-12-06-16-35.png" width="400">
 <img src="https://i.ibb.co/hRwdnZS/2020-12-06-16-37.png" width="400">
   - Users will have a default photo for their contact which they could upload when they feel like editing the contact
