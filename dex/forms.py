@@ -6,7 +6,7 @@ from django import forms
 class NewContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ['name', 'email', 'contact', 'image_url']
+        fields = ['contact_name', 'email', 'contact', 'image_url']
         # adding class to form field
         '''
         widgets = {

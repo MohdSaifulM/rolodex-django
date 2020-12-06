@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'dex',
     'crispy_forms',
     'widget_tweaks',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

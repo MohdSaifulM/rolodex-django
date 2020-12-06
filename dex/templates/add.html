@@ -6,8 +6,8 @@ Contact {% endblock %} {% block body %}
     {% csrf_token %}
     <div class="input-field form-field col s12">
     <i class="material-icons prefix">account_box</i>
-      {% render_field form.name class="validate" %}
-      <label for="name">Name</label>
+      {% render_field form.contact_name class="validate" %}
+      <label for="contact_name">Name</label>
     <div class="input-field form-field col s12">
     <i class="material-icons prefix">email</i>
       {% render_field form.email class="validate" %}

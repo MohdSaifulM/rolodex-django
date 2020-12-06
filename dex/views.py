@@ -1,24 +1,34 @@
 from django.http.response import HttpResponse, HttpResponseRedirect
+from operator import attrgetter
 from django.shortcuts import render
 from django.urls import reverse
 from dex.models import Contact
 from .forms import NewContactForm
+from .filters import ContactFilter
 
 # Create your views here.
 def index(request):
+
+    # contacts = sorted(Contact.objects.all(), key=attrgetter('updated_at'), reverse=True)
     contacts = Contact.objects.all()
 
-    return render(request, 'index.html', {"contacts": contacts})
+    myFilter = ContactFilter(request.GET, queryset=contacts)
+    contacts = myFilter.qs
+    
+    context = {"contacts": contacts, "myFilter": myFilter}
+
+    return render(request, 'index.html', context)
+
 
 def add(request):
     if request.method == "POST": 
         form_data = NewContactForm(request.POST, request.FILES) 
         if form_data.is_valid():  
-            name = form_data.cleaned_data['name']
+            contact_name = form_data.cleaned_data['contact_name']
             email = form_data.cleaned_data['email']
             contact = form_data.cleaned_data['contact']
             # new Contact(request.body)
-            contact_info = Contact(name=name, email=email, contact=contact,)
+            contact_info = Contact(contact_name=contact_name, email=email, contact=contact,)
             contact_info.save()  
             return HttpResponseRedirect(reverse("index"))
         else: 
@@ -50,3 +60,4 @@ def update_contact(request, id):
     form = NewContactForm(instance=contact)
 
     return render(request, 'update.html', {"contact": contact, "form": form})
+    

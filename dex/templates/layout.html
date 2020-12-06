@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +22,7 @@
     <title>{% block title %} Rolodex {% endblock %}</title>
   </head>
   <body>
+    {% block nav %}
     <nav class="blue ligthen-4">
       <div class="nav-wrapper">
         <a href="{% url 'index' %}" class="brand-logo"
@@ -28,9 +30,7 @@
         >
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href=""
-              ><i class="material-icons">search</i></a
-            >
+            <i class="material-icons prefix">search</i>
           </li>
           <li>
             <a href="{% url 'add' %}"><i class="material-icons">add</i></a>
@@ -38,7 +38,10 @@
         </ul>
       </div>
     </nav>
-    {% block body %} {% endblock %}
+    {% endblock %} {% block body %} {% endblock %}
+    <script type="text/javascript">
+      document.getElementById("id_q").value = "{{query}}";
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>

@@ -5,7 +5,7 @@ from .models import Contact
 
 class ContactAdmin(admin.ModelAdmin):
     #tuple
-    list_display = ("id", "name", "email", "contact")
+    list_display = ("id", "contact_name", "email", "contact")
 
 
 # Register to admin panel

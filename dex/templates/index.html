@@ -1,4 +1,23 @@
-{% extends 'layout.html' %} {% block body %} {% if contacts %}
+{% extends 'layout.html' %} {% load widget_tweaks %} {% block nav %}
+<nav class="blue ligthen-4">
+  <div class="nav-wrapper">
+    <a href="{% url 'index' %}" class="brand-logo"
+      ><i class="material-icons">chrome_reader_mode</i></a
+    >
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <form method="get">
+          {{myFilter.form}}
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </li>
+      <li>
+        <a href="{% url 'add' %}"><i class="material-icons">add</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% endblock %} {% block body %} {% if contacts %}
 
 <div class="container">
   <div class="row">
@@ -31,7 +50,7 @@
           <span>
             <ul class="">
               <li class="row">
-                <i class="material-icons col s2">account_box</i>{{contact.name}}
+                <i class="material-icons col s2">account_box</i>{{contact.contact_name}}
               </li>
               <li class="row">
                 <i class="material-icons col s2">email</i>{{contact.email}}

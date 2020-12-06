@@ -35,3 +35,7 @@ body {
 .input-field .prefix.active {
     color: #1976d2;
 }
+
+#search-bar label {
+    color: #e3f2fd;
+}
